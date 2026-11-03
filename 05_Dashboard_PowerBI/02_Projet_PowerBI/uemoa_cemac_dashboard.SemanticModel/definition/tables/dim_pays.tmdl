@@ -1,0 +1,63 @@
+table dim_pays
+	lineageTag: aae1b0d6-aafd-4dbd-9792-857551d49631
+
+	column id_pays
+		dataType: int64
+		formatString: 0
+		lineageTag: 2dde313d-27fd-42e7-9def-3b00aace7ead
+		summarizeBy: none
+		sourceColumn: id_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	column nom_pays
+		dataType: string
+		lineageTag: 2145b80b-98db-4e44-bd21-82fb796400b5
+		summarizeBy: none
+		sourceColumn: nom_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_pays
+		dataType: string
+		lineageTag: 099e2c49-e765-4aa1-8684-12b5c97476fb
+		summarizeBy: none
+		sourceColumn: code_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		lineageTag: 090f2ecd-d6a1-45c5-8b24-8c92de110a1f
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column monnaie
+		dataType: string
+		lineageTag: b7bfc1cb-eed0-4ce0-8dee-7dcc7f95c04c
+		summarizeBy: none
+		sourceColumn: monnaie
+
+		annotation SummarizationSetBy = Automatic
+
+	column pays_carte = SWITCH(dim_pays[nom_pays], "Côte d'Ivoire", "Ivory Coast", "Guinée-Bissau", "Guinea Bissau", "République centrafricaine", "Central African Republic", "République du Congo", "Republic of Congo", "Guinée équatoriale", "Equatorial Guinea", "Sénégal", "Senegal", "Bénin", "Benin", "Burkina Faso", "Burkina Faso", "Mali", "Mali", "Niger", "Niger", "Togo", "Togo", "Cameroun", "Cameroon", "Gabon", "Gabon", "Tchad", "Chad", 'dim_pays'[nom_pays])
+		lineageTag: 1009ab82-d84f-4791-9007-84f94da613d7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_pays = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("Z:\Prjojet Convergence UEMOA-CEMAC\05_Dashboard_PowerBI\01_Donnees\modele_powerbi_uemoa_cemac.xlsx"), null, true),
+				    dim_pays_Sheet = Source{[Item="dim_pays",Kind="Sheet"]}[Data],
+				    #"En-têtes promus" = Table.PromoteHeaders(dim_pays_Sheet, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"id_pays", Int64.Type}, {"nom_pays", type text}, {"code_pays", type text}, {"zone", type text}, {"monnaie", type text}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_ResultType = Table
+

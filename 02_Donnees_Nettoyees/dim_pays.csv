@@ -1,0 +1,15 @@
+id_pays,nom_pays,code_pays,zone,monnaie
+1,Bénin,BEN,UEMOA,XOF
+2,"Burkina Faso",BFA,UEMOA,XOF
+3,"Côte d'Ivoire",CIV,UEMOA,XOF
+4,Guinée-Bissau,GNB,UEMOA,XOF
+5,Mali,MLI,UEMOA,XOF
+6,Niger,NER,UEMOA,XOF
+7,Sénégal,SEN,UEMOA,XOF
+8,Togo,TGO,UEMOA,XOF
+9,Cameroun,CMR,CEMAC,XAF
+10,"République centrafricaine",CAF,CEMAC,XAF
+11,"République du Congo",COG,CEMAC,XAF
+12,Gabon,GAB,CEMAC,XAF
+13,"Guinée équatoriale",GNQ,CEMAC,XAF
+14,Tchad,TCD,CEMAC,XAF

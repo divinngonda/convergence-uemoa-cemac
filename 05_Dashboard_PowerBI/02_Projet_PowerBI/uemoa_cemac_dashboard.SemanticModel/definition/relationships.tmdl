@@ -1,0 +1,4 @@
+relationship AutoDetected_8853817b-b3ed-4174-a3e6-1ae4d2b0d075
+	fromColumn: fact_indicateurs.id_pays
+	toColumn: dim_pays.id_pays
+

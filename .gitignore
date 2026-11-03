@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Fichiers temporaires et sauvegardes
+*.tmp
+*.bak
+*.swp
+*~
+
+# Power BI : caches et paramètres locaux
+**/.pbi/cache.abf
+**/.pbi/localSettings.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+**/.pbi/editorSettings.json

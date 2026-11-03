@@ -1,0 +1,59 @@
+table fact_indicateurs
+	lineageTag: 6463a35c-49fb-4f69-b906-9fd81d6de407
+
+	measure 'Croissance moyenne (%)' = AVERAGE(fact_indicateurs[croissance_pib])
+		lineageTag: 58b6040c-a9f4-42bc-bb20-20bd383d551a
+
+		formatStringDefinition = "0.00"" %"""
+
+	column id_pays
+		dataType: int64
+		formatString: 0
+		lineageTag: ab95d8c8-be08-40e8-9006-190a7a42a9b3
+		summarizeBy: none
+		sourceColumn: id_pays
+
+		annotation SummarizationSetBy = Automatic
+
+	column annee
+		dataType: int64
+		formatString: 0
+		lineageTag: 1055a496-1e31-4d10-984d-4f3857951fa6
+		summarizeBy: sum
+		sourceColumn: annee
+
+		annotation SummarizationSetBy = Automatic
+
+	column croissance_pib
+		dataType: double
+		lineageTag: befe5683-6736-4a6a-aa7c-1d73ea7f8595
+		summarizeBy: sum
+		sourceColumn: croissance_pib
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pib_reel_par_habitant
+		dataType: double
+		lineageTag: ee0d18bc-e4c8-478d-8ca6-53e73eae4519
+		summarizeBy: sum
+		sourceColumn: pib_reel_par_habitant
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_indicateurs = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("Z:\Prjojet Convergence UEMOA-CEMAC\05_Dashboard_PowerBI\01_Donnees\modele_powerbi_uemoa_cemac.xlsx"), null, true),
+				    fact_indicateurs_Sheet = Source{[Item="fact_indicateurs",Kind="Sheet"]}[Data],
+				    #"En-têtes promus" = Table.PromoteHeaders(fact_indicateurs_Sheet, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"id_pays", Int64.Type}, {"annee", Int64.Type}, {"croissance_pib", type number}, {"pib_reel_par_habitant", type number}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_ResultType = Table
+

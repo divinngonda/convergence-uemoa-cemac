@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "uemoa_cemac_dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "53817ea8-5ae3-4743-8792-18e65c795281"
+  }
+}

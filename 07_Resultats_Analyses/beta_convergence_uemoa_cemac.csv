@@ -1,0 +1,15 @@
+zone,nom_pays,log_pib_initial,croissance_annuelle_pct
+CEMAC,"République centrafricaine",5.9035,0.73
+CEMAC,Tchad,6.9017,-1.29
+CEMAC,Cameroun,7.2549,0.51
+CEMAC,"République du Congo",7.7995,-3.71
+CEMAC,Gabon,8.8604,-0.59
+CEMAC,"Guinée équatoriale",9.1126,-7.01
+UEMOA,Niger,6.1855,2.29
+UEMOA,"Burkina Faso",6.4459,2.22
+UEMOA,Guinée-Bissau,6.4694,2.32
+UEMOA,Togo,6.7018,2.98
+UEMOA,Mali,6.7312,1.08
+UEMOA,Bénin,6.9102,3.32
+UEMOA,Sénégal,7.105,2.62
+UEMOA,"Côte d'Ivoire",7.5037,3.17

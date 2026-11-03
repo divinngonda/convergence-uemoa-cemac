@@ -1,0 +1,20 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-FR
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_pays","fact_indicateurs"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_pays
+ref table fact_indicateurs
+
+ref cultureInfo fr-FR
+
