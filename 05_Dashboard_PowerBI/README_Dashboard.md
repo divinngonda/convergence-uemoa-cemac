@@ -6,6 +6,8 @@ Ce tableau de bord Power BI s’inscrit dans le cadre du projet d’analyse de l
 
 Il permet de comparer les dynamiques de croissance économique des deux espaces régionaux sur la période 2015–2025, de visualiser les écarts entre les pays et d’observer leur évolution dans le temps.
 
+![Capture réelle du tableau de bord Power BI UEMOA et CEMAC](apercu_dashboard.png)
+
 ## 2. Indicateur étudié
 
 L’analyse présentée dans le tableau de bord porte sur la croissance annuelle du PIB réel.
@@ -50,6 +52,8 @@ Les données proviennent de la base **World Development Indicators (WDI)** de la
 
 Indicateur utilisé : `NY.GDP.MKTP.KD.ZG`.
 
+Le projet Power BI modifiable lit les tables `dim_pays` et `fact_indicateurs` dans le classeur [`modele_powerbi_uemoa_cemac.xlsx`](https://github.com/divinngonda/convergence-uemoa-cemac/blob/5424844bc8d1d24b89ee4d1fa12cc4003081fa6e/02_Donnees_Nettoyees/modele_powerbi_uemoa_cemac.xlsx). La source est une URL publique du dépôt, épinglée sur le commit `5424844`; elle ne dépend pas d'un chemin local propre à une machine. L'actualisation nécessite une connexion Internet.
+
 ## 7. Outils utilisés
 
 - Microsoft Excel : préparation et structuration des données.
@@ -58,12 +62,12 @@ Indicateur utilisé : `NY.GDP.MKTP.KD.ZG`.
 
 ## 8. Fichiers du projet
 
+- `apercu_dashboard.png` : capture réelle de la page principale du rapport.
 - `01_Livrable_Final/` : version finale du rapport au format `.pbix`.
 - `02_Projet_PowerBI/` : projet Power BI au format `.pbip`, accompagné des dossiers `.Report` et `.SemanticModel`.
-- `03_Archives/` : versions antérieures conservées, le cas échéant.
 
 ## 9. Ouverture du rapport
 
 Pour consulter le tableau de bord, ouvrir le fichier `.pbix` situé dans `01_Livrable_Final/` avec Power BI Desktop.
 
-Le dossier `02_Projet_PowerBI/` contient la version projet `.pbip` et ses fichiers associés.
+Le dossier `02_Projet_PowerBI/` contient la version projet `.pbip` et ses fichiers associés. Pour actualiser les données, ouvrir `uemoa_cemac_dashboard.pbip` dans Power BI Desktop, puis lancer **Accueil > Actualiser**. Si Power BI demande le type de connexion à la source Web GitHub, choisir **Anonyme**; si un niveau de confidentialité est demandé, choisir **Public**. Le classeur est public et ne demande pas de compte. Une connexion Internet est nécessaire pour l'actualisation. La source est figée sur le commit `5424844` afin que les résultats restent reproductibles même si le fichier de données évolue ensuite.

@@ -1,18 +1,11 @@
 USE convergence_uemoa_cemac;
 
+-- Exécuter ce script après 04_creation_tables_import.sql et après avoir
+-- chargé les deux CSV préparés dans les tables *_import avec MySQL Workbench.
+
 -- =====================================================
 -- 1. IMPORT DES DONNEES DE CROISSANCE DU PIB
 -- =====================================================
-
-CREATE TABLE croissance_pib_import (
-    country_name VARCHAR(100),
-    country_code VARCHAR(3),
-    annee INT,
-    croissance_pib DECIMAL(12,9)
-);
-
--- Le fichier CSV nettoyé est importé dans croissance_pib_import
--- via l'assistant Table Data Import Wizard de MySQL Workbench.
 
 INSERT INTO indicateurs_economiques (
     id_pays,
@@ -31,16 +24,6 @@ JOIN pays p
 -- =====================================================
 -- 2. IMPORT DU PIB REEL PAR HABITANT
 -- =====================================================
-
-CREATE TABLE pib_reel_par_habitant_import (
-    country_name VARCHAR(100),
-    country_code VARCHAR(3),
-    annee INT,
-    pib_reel_par_habitant DECIMAL(18,12)
-);
-
--- Le fichier CSV nettoyé est importé dans pib_reel_par_habitant_import
--- via l'assistant Table Data Import Wizard de MySQL Workbench.
 
 UPDATE indicateurs_economiques i
 JOIN pays p

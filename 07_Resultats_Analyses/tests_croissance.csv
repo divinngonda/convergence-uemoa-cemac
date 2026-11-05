@@ -1,0 +1,5 @@
+﻿methode,estimation_uemoa_moins_cemac,p_value,ic95_bas,ic95_haut,n_uemoa,n_cemac,note
+Welch sur les moyennes nationales,4.404530028420454,0.015782003840280234,1.2227576704835288,7.586302386357379,8,6,Une observation par pays; moyennes calculées sur 2015-2025.
+Permutation exacte des moyennes nationales,4.404530028420454,0.000333000333000333,,,8,6,Test bilatéral sur les 3003 répartitions possibles de 8 pays parmi 14.
+Mann-Whitney exact sur les moyennes nationales,4.404530028420454,0.000666000666000666,,,8,6,Comparaison de rangs; test bilatéral exact.
+OLS avec effets fixes année et erreurs regroupées par pays,4.4045300284204565,0.0003687609951924948,1.9806207727155982,6.828439284125315,8,6,154 lignes; erreurs standards regroupées sur 14 pays.

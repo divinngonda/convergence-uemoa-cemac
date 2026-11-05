@@ -50,7 +50,9 @@ L'échantillon comprend 14 pays observés sur 11 années, soit **154 observation
 
 ## 5. Données utilisées
 
-Les données proviennent de la base [World Development Indicators (WDI)](https://databank.worldbank.org/source/world-development-indicators) de la Banque mondiale. Les fichiers sources originaux sont conservés dans le dossier `01_Raw/`, puis transformés et harmonisés avant leur intégration dans MySQL.
+Les données proviennent de la base [World Development Indicators (WDI)](https://databank.worldbank.org/source/world-development-indicators) de la Banque mondiale. Les sources et les étapes de préparation sont conservées entre `01_Donnees_Brutes/` et `02_Donnees_Nettoyees/`, puis harmonisées avant leur intégration dans MySQL. Le fichier de croissance indique une date de dernière mise à jour WDI au 13 juillet 2026; cette date ne correspond pas à la date de téléchargement, qui n'est pas enregistrée dans le dépôt.
+
+Le fichier `01_Donnees_Brutes/API_NY.GDP.PCAP.KD_DS2_en_csv_v2_380.csv` est une copie de travail du PIB par habitant reformattée avec Power Query et réencodée pour faciliter sa manipulation. Il contient les mêmes observations que `02_Donnees_Nettoyees/pib_reel_par_habitant_uemoa_cemac.nettoye.csv`; il est conservé pour montrer cette étape de préparation, et ne constitue pas un export WDI original non modifié.
 
 Les deux indicateurs économiques principaux sont :
 
@@ -195,7 +197,7 @@ Dans l'ensemble, les résultats mettent en évidence un écart de performance é
 - **Power Query** : nettoyage et transformation des données.
 - **MySQL / MySQL Workbench** : stockage, structuration, jointures et analyses SQL.
 - **Excel** : vérifications, analyses et préparation complémentaire des données.
-- **Python** : audit statistique, recalculs et analyses de sensibilité.
+- **Python** : audit statistique, recalculs et analyses de sensibilité; le [script reproductible](../08_Code_Analyses/analyses_statistiques.py) et ses instructions sont publiés dans `08_Code_Analyses/`.
 - **Power BI** : création du tableau de bord interactif et visualisation des résultats.
 - **VS Code** : contrôle des fichiers CSV et rédaction de la documentation Markdown.
 
@@ -216,7 +218,7 @@ Ces limites invitent à considérer les résultats comme des éléments de compa
 
 ## 11. Documentation et structure du projet
 
-Les trois documents de référence sont conservés dans `06_Docs/` :
+Les trois documents de référence sont conservés dans `06_Documentation/` :
 
 - [README du projet](README_Projet.md)
 - [Analyse exploratoire](Analyse_Exploratoire.md)
@@ -224,7 +226,10 @@ Les trois documents de référence sont conservés dans `06_Docs/` :
 
 Arborescence générale :
 
-Projet_Convergence_UEMOA_CEMAC/
+convergence-uemoa-cemac/
+│
+├── README.md
+├── GUIDE_DEMARRAGE.md
 │
 ├── 01_Donnees_Brutes/
 │   ├── API_NY.GDP.PCAP.KD_DS2_en_csv_v2_380.csv
@@ -238,25 +243,25 @@ Projet_Convergence_UEMOA_CEMAC/
 │   ├── fact_indicateurs.csv
 │   └── modele_powerbi_uemoa_cemac.xlsx
 │
-├── 03_Base_MySQL/
+├── 03_Base_MYSQL/
 │   ├── 01_creation_base.sql
 │   ├── 02_creation_tables.sql
 │   ├── 03_insertion_pays.sql
-│   └── 04_import_donnees.sql
+│   ├── 04_creation_tables_import.sql
+│   └── 05_import_donnees.sql
 │
 ├── 04_Requetes_SQL/
 │   ├── 05_requetes_analyse.sql
 │   └── 06_export_powerbi.sql
 │
 ├── 05_Dashboard_PowerBI/
+│   ├── apercu_dashboard.png
 │   ├── 01_Livrable_Final/
 │   │   └── uemoa_cemac_dashboard_final.pbix
-│   │
 │   ├── 02_Projet_PowerBI/
 │   │   ├── uemoa_cemac_dashboard.Report/
 │   │   ├── uemoa_cemac_dashboard.SemanticModel/
 │   │   └── uemoa_cemac_dashboard.pbip
-│   │
 │   └── README_Dashboard.md
 │
 ├── 06_Documentation/
@@ -264,11 +269,16 @@ Projet_Convergence_UEMOA_CEMAC/
 │   ├── Conclusions.md
 │   └── README_Projet.md
 │
-└── 07_Resultats_Analyses/
-    ├── beta_convergence_uemoa_cemac.csv
-    ├── beta_convergence_uemoa_cemac.xlsx
-    ├── sigma_convergence_uemoa_cemac.csv
-    └── sigma_convergence_uemoa_cemac.xlsx
+├── 07_Resultats_Analyses/
+│   ├── beta_convergence_uemoa_cemac.csv
+│   ├── beta_convergence_uemoa_cemac.xlsx
+│   ├── sigma_convergence_uemoa_cemac.csv
+│   └── sigma_convergence_uemoa_cemac.xlsx
+
+└── 08_Code_Analyses/
+    ├── analyses_statistiques.py
+    ├── requirements.txt
+    └── README.md
 
 Cette arborescence présente l'organisation générale du projet. Les fichiers sources, les données nettoyées, les scripts SQL, le fichier Power BI et les documents de référence doivent être conservés dans leurs dossiers respectifs.
 
@@ -280,5 +290,5 @@ Cette arborescence présente l'organisation générale du projet. Les fichiers s
 - [Croissance annuelle du PIB — NY.GDP.MKTP.KD.ZG](https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG)
 - [PIB réel par habitant, dollars constants de 2015 — NY.GDP.PCAP.KD](https://data.worldbank.org/indicator/NY.GDP.PCAP.KD)
 
-Les données et les résultats doivent être interprétés en tenant compte des éventuelles révisions de la base WDI.
+Le fichier de croissance conservé dans le dépôt indique une dernière mise à jour WDI au 13 juillet 2026. La date de téléchargement n'est pas enregistrée; le fichier du PIB par habitant présent dans `01_Donnees_Brutes/` ne contient pas les métadonnées de mise à jour WDI. Les données et les résultats doivent être interprétés en tenant compte des éventuelles révisions de la base WDI.
 
