@@ -2,6 +2,8 @@
 
 # Analyse exploratoire
 
+Les tests et analyses de sensibilité présentés ici sont reproductibles avec le [script Python](../08_Code_Analyses/analyses_statistiques.py); les étapes d'installation figurent dans le [guide du code](../08_Code_Analyses/README.md).
+
 ## 1. Croissance moyenne par zone (2015-2025)
 
 ### Résultats

@@ -1,0 +1,3 @@
+﻿zone,delta_sigma_2025_moins_2015,bootstrap_ic95_bas,bootstrap_ic95_haut,graine,repetitions_bootstrap,pays_exclu_pour_sensibilite,delta_sigma_sans_pays,part_de_la_baisse_reduite,note
+CEMAC,-0.16116826347745195,-0.3237559305363792,0.032199242670092665,20261105,20000,Guinée équatoriale,-0.05195920182894698,0.6776089739515232,Bootstrap apparié par pays sur les valeurs 2015 et 2025.
+UEMOA,0.03417650169765751,0.002169191832044559,0.054252648876416176,20261105,20000,,,,Bootstrap apparié par pays sur les valeurs 2015 et 2025.

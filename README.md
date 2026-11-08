@@ -6,6 +6,10 @@ Ce projet analyse les dynamiques de croissance économique et de convergence ent
 
 L'objectif est de comparer les performances économiques des deux espaces, d'étudier les disparités entre pays et d'examiner si les économies tendent à se rapprocher en matière de niveau de vie.
 
+## Aperçu du tableau de bord
+
+![Capture réelle du tableau de bord Power BI UEMOA et CEMAC](05_Dashboard_PowerBI/apercu_dashboard.png)
+
 ## Périmètre et données
 
 - **Période :** 2015–2025
@@ -21,6 +25,7 @@ Indicateurs étudiés :
 
 - **Excel :** exploration, préparation et contrôle des données.
 - **MySQL :** structuration de la base de données et requêtes SQL.
+- **Python :** analyses statistiques avancées et contrôles de sensibilité.
 - **Power BI :** analyse exploratoire et visualisation interactive.
 
 ## Principaux résultats
@@ -37,24 +42,27 @@ Indicateurs étudiés :
 
 | Dossier | Contenu |
 |---|---|
-| `01_Donnees_Brutes` | Données sources |
+| `01_Donnees_Brutes` | Fichiers de référence et copie de travail Power Query pour le PIB par habitant |
 | `02_Donnees_Nettoyees` | Données préparées et nettoyées |
 | `03_Base_MYSQL` | Scripts de création et de gestion de la base |
 | `04_Requetes_SQL` | Requêtes d'analyse |
 | `05_Dashboard_PowerBI` | Dashboard et fichiers du projet Power BI |
 | `06_Documentation` | Documentation et méthodologie |
 | `07_Resultats_Analyses` | Résultats et analyses complémentaires |
+| `08_Code_Analyses` | Code Python et instructions pour reproduire les analyses statistiques |
 
 ## Livrables et documentation
 
 - [Documentation détaillée du projet](06_Documentation/README_Projet.md)
+- [Guide pour reproduire le projet et apprendre Git/GitHub](GUIDE_DEMARRAGE.md)
 - [Documentation du dashboard Power BI](05_Dashboard_PowerBI/README_Dashboard.md)
+- [Code Python des analyses statistiques](08_Code_Analyses/README.md)
 - [Dashboard Power BI – fichier PBIX](05_Dashboard_PowerBI/01_Livrable_Final/uemoa_cemac_dashboard_final.pbix)
 - [Projet Power BI modifiable](05_Dashboard_PowerBI/02_Projet_PowerBI/)
 
 ## Source des données
 
-Banque mondiale – [World Development Indicators](https://databank.worldbank.org/source/world-development-indicators)
+Banque mondiale – [World Development Indicators](https://databank.worldbank.org/source/world-development-indicators). Le fichier source de croissance porte une date de dernière mise à jour WDI au **13 juillet 2026**; cette date est celle de la base, pas la date de téléchargement. La date d'extraction des fichiers n'est pas conservée dans le dépôt. Le guide du projet explique aussi pourquoi une copie du PIB par habitant, reformattée avec Power Query, est conservée dans `01_Donnees_Brutes/`.
 
 ---
 
